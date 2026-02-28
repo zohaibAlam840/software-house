@@ -34,7 +34,13 @@ export function Navbar() {
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         className="text-sm font-bold uppercase tracking-widest px-4 py-2 bg-zinc-100 rounded-full"
                     >
-                        {isMobileMenuOpen ? "Close" : "Menu"}
+                        {isMobileMenuOpen ? (
+                            <svg className="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        ) : (
+                            "Menu"
+                        )}
                     </button>
                 </div>
             </nav>
