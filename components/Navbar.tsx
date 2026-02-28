@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Navbar() {
@@ -17,7 +18,9 @@ export function Navbar() {
         <>
             <nav className="fixed top-0 left-0 z-50 flex w-full items-center justify-between px-6 py-5 md:py-6 md:px-20 bg-white/85 backdrop-blur-md border-b border-zinc-100">
                 {/* Make z-index high so logo stays above menu overlay */}
-                <div className="text-2xl font-black italic tracking-tighter relative z-50">GiantsOfTech</div>
+                <div className="relative z-50">
+                    <Image src="/logo.png" alt="GiantsOfTech" width={140} height={40} className="h-10 w-auto object-contain" priority />
+                </div>
 
                 {/* Desktop Links */}
                 <div className="hidden gap-8 text-sm font-semibold uppercase tracking-wider md:flex">

@@ -69,13 +69,13 @@ export const ContactCTA = () => {
                             href="mailto:contact@giantsoftech.com"
                             className="text-2xl md:text-4xl font-semibold border-b border-zinc-700 hover:border-white transition-all pb-2"
                         >
-                            hello@giantsoftech.com
+                            contact@giantsoftech.com
                         </a>
                     </MotionReveal>
 
                     <MotionReveal variant="fadeUp" delay={0.6}>
                         <a
-                            href="/contact"
+                            href="/#contact"
                             className="flex h-16 items-center justify-center rounded-full bg-white px-10 text-xl font-bold text-black transition-all hover:scale-105 active:scale-95"
                         >
                             Start a Project
