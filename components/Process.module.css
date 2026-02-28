@@ -1,0 +1,50 @@
+/* Process.module.css */
+
+.boxA {
+    aspect-ratio: 0.925;
+    /* your #process-card1-inner */
+}
+
+.boxB {
+    aspect-ratio: 1.09;
+    /* your other "inner" */
+}
+
+/* fallback if shape() not supported */
+.blobFallback {
+    border-radius: 55% 45% 58% 42% / 52% 48% 52% 48%;
+}
+
+/* Shape A (process-card1-inner) */
+@supports (clip-path: shape(from 55.12% .72%, curve to 83.57% 20.97% with 67.39% 2.63% / 75.32% 12.36%)) {
+    .blobStartEnd {
+        border-radius: 0;
+        clip-path: shape(from 55.12% .72%,
+                curve to 83.57% 20.97% with 67.39% 2.63% / 75.32% 12.36%,
+                curve to 99.71% 47.28% with 91.08% 28.82% / 98.53% 36.86%,
+                curve to 90.18% 79.71% with 101.01% 58.87% / 97.94% 70.54%,
+                curve to 55.12% 100% with 81.35% 90.15% / 69.45% 100.25%,
+                curve to 21.38% 78.49% with 40.92% 99.74% / 31.23% 87.94%,
+                curve to .18% 47.28% with 11.79% 69.29% / 1.35% 60.01%,
+                curve to 15.1% 10.27% with -1.07% 33.65% / 4.19% 19.52%,
+                curve to 55.12% .72% with 25.65% 1.32% / 40.99% -1.49%,
+                close);
+    }
+}
+
+/* Shape B (your other inner shape) */
+@supports (clip-path: shape(from 54.38% 1%, curve to 87.83% 6.22% with 66.05% -.11% / 78.86% -1.96%)) {
+    .blobMiddle {
+        border-radius: 0;
+        clip-path: shape(from 54.38% 1%,
+                curve to 87.83% 6.22% with 66.05% -.11% / 78.86% -1.96%,
+                curve to 100% 42.6% with 97.28% 14.84% / 99.96% 29.18%,
+                curve to 88.02% 79.19% with 100.04% 56.06% / 96.11% 69%,
+                curve to 54.38% 99.99% with 79.25% 90.22% / 67.79% 99.7%,
+                curve to 19.37% 80.67% with 40.78% 100.29% / 29.12% 90.99%,
+                curve to .14% 42.6% with 9.45% 70.17% / -1.38% 57.56%,
+                curve to 26.33% 12.1% with 1.6% 28.22% / 15.47% 20.43%,
+                curve to 54.38% 1% with 34.79% 5.61% / 44.08% 1.98%,
+                close);
+    }
+}
