@@ -148,7 +148,7 @@ export function Process() {
     }, [connections, isDesktop]);
 
     return (
-        <section className="relative z-10 w-full bg-white px-6 md:px-12 lg:px-16 pt-16 pb-48 md:pt-24 md:pb-80">
+        <section id="process" className="relative z-10 w-full bg-white px-6 md:px-12 lg:px-16 pt-16 pb-48 md:pt-24 md:pb-80">
             <div className="mx-auto w-full max-w-[1400px]">
                 <div className="text-center mb-10 md:mb-12">
                     <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-zinc-900">

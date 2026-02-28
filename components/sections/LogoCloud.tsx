@@ -75,7 +75,7 @@ export const FeatureShowcase = () => {
                 detail: "Our sliders combine kinetic typography with high-fidelity media to capture attention instantly and guide users through your brand's narrative. We focus on performance and seamless transitions to ensure a premium feel across all devices.",
                 icon: Icons.Sliders(activeId === "sliders"),
                 previewImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200",
-                href: "/services",
+                href: "#services",
             },
             {
                 id: "carousels",
@@ -84,7 +84,7 @@ export const FeatureShowcase = () => {
                 detail: "Implement frictionless scrolling and touch-optimized navigation to present product galleries or featured portfolios with maximum impact. Designed for ease of use and high engagement.",
                 icon: Icons.Carousels(activeId === "carousels"),
                 previewImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200",
-                href: "/services",
+                href: "#work",
             },
             {
                 id: "hero",
@@ -93,7 +93,7 @@ export const FeatureShowcase = () => {
                 detail: "We design high-conversion entry points that blend bold typography with atmospheric visuals to define your brand in seconds. Every pixel is optimized for search engines and user experience.",
                 icon: Icons.Hero(activeId === "hero"),
                 previewImage: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&q=80&w=1200",
-                href: "/services",
+                href: "#services",
             },
             {
                 id: "websites",
@@ -102,7 +102,7 @@ export const FeatureShowcase = () => {
                 detail: "From minimalist one-pagers to complex enterprise platforms, we build responsive, performant, and future-proof web experiences that drive results and delight users.",
                 icon: Icons.Websites(activeId === "websites"),
                 previewImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                href: "/services",
+                href: "#process",
             },
             {
                 id: "dynamic",
@@ -111,7 +111,7 @@ export const FeatureShowcase = () => {
                 detail: "Seamlessly integrate real-time APIs and content management systems to keep your site fresh, relevant, and automated. We make data beautiful and interactive.",
                 icon: Icons.Dynamic(activeId === "dynamic"),
                 previewImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200",
-                href: "/services",
+                href: "#services",
             },
         ],
         [activeId]
@@ -254,7 +254,7 @@ export const FeatureShowcase = () => {
                                 {/* CTA */}
                                 <div className="mt-10">
                                     <a
-                                        href={active.href ?? "/services"}
+                                        href={active.href ?? "#services"}
                                         className="inline-flex items-center justify-center rounded-full bg-rose-500 px-14 py-4 text-white font-semibold shadow-[0_18px_40px_-20px_rgba(244,63,94,0.65)] hover:scale-[1.02] active:scale-[0.98] transition-transform"
                                     >
                                         Learn More

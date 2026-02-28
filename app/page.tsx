@@ -14,6 +14,7 @@ import { WhyChooseUs } from "../components/sections/WhyChooseUs";
 import { FAQ } from "../components/sections/FAQ";
 import { ContactSection } from "../components/sections/ContactSection";
 import { CTABanner } from "../components/sections/CTABanner";
+import { Navbar } from "../components/Navbar";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -36,21 +37,10 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col bg-white font-sans">
       {/* Simple Header */}
-      <nav className="fixed top-0 left-0 z-50 flex w-full items-center justify-between px-6 py-6 md:px-20 bg-white/80 backdrop-blur-md border-b border-zinc-100">
-        <div className="text-2xl font-black italic tracking-tighter">GiantsOfTech</div>
-        <div className="hidden gap-8 text-sm font-semibold uppercase tracking-wider md:flex">
-          <a href="/work" className="hover:opacity-50 transition-opacity">Work</a>
-          <a href="/services" className="hover:opacity-50 transition-opacity">Services</a>
-          <a href="/team" className="hover:opacity-50 transition-opacity">Team</a>
-          <a href="/contact" className="hover:opacity-50 transition-opacity">Contact</a>
-        </div>
-        <div className="block md:hidden">
-          <span className="text-xl">Menu</span>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Horizontal Scroll Sections (Hero -> Projects) */}
-      <div ref={containerRef} className="relative h-[1000vh]">
+      <div id="work" ref={containerRef} className="relative h-[1000vh]">
         <div className="sticky top-0 h-[100svh] w-full overflow-hidden">
           <motion.div
             style={{ x }}

@@ -40,7 +40,7 @@ export const ServicesSection = () => {
     }, [reelImages.length]);
 
     return (
-        <section className="w-full px-6 py-24 md:px-12 lg:px-16 bg-white overflow-hidden">
+        <section id="services" className="w-full px-6 py-24 md:px-12 lg:px-16 bg-white overflow-hidden">
             <div className="mx-auto max-w-[1400px]">
                 <MotionReveal variant="fadeUp" className="mb-20">
                     <h2 className="mb-8 text-[10px] uppercase tracking-[0.24em] text-zinc-400">[ SERVICES ]</h2>

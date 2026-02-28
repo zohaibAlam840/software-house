@@ -87,7 +87,7 @@ export function FAQ() {
                     })}
                 </div>
 
-                <div className="mt-16 flex flex-col items-center justify-center text-center">
+                {/* <div className="mt-16 flex flex-col items-center justify-center text-center">
                     <span className="text-zinc-500 text-sm mb-4">Still Have a Question?</span>
                     <a
                         href="/contact"
@@ -95,7 +95,7 @@ export function FAQ() {
                     >
                         Schedule a Call
                     </a>
-                </div>
+                </div> */}
             </div>
         </section>
     );

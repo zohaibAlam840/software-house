@@ -24,7 +24,7 @@ export const Hero = () => {
 
     return (
         <section className="relative w-full bg-white h-[100svh]">
-            <div className="mx-auto h-full w-full max-w-[1280px] px-6 py-6 md:py-12 md:px-12 lg:px-16 overflow-y-auto md:overflow-hidden">
+            <div className="mx-auto h-full w-full max-w-[1280px] pt-28 pb-10 px-6 md:pt-32 md:pb-12 md:px-12 lg:px-16 overflow-y-auto md:overflow-hidden">
                 {/* 12-col layout */}
                 <div className="grid h-full grid-cols-12 items-center gap-x-10 gap-y-8 md:gap-y-14 mt-10 md:mt-0">
                     {/* LEFT: big headline */}
