@@ -230,7 +230,7 @@ export function TeamPageClient() {
     return (
         <>
             {/* ── Hero ── */}
-            <section className="pt-36 pb-16 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto">
+            <section className="pt-24 sm:pt-32 md:pt-36 pb-12 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -253,7 +253,7 @@ export function TeamPageClient() {
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="mt-12 flex items-center gap-8 flex-wrap"
+                    className="mt-10 flex items-center gap-5 sm:gap-8 flex-wrap"
                 >
                     {[
                         { n: `${team.length}`, label: "Team members" },
@@ -270,7 +270,7 @@ export function TeamPageClient() {
             </section>
 
             {/* ── Grid ── */}
-            <section className="px-6 md:px-12 lg:px-20 pb-32 max-w-[1400px] mx-auto">
+            <section className="px-6 md:px-12 lg:px-20 pb-16 sm:pb-24 md:pb-32 max-w-[1400px] mx-auto">
                 {/* Featured member (CEO) — spans 2 cols */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                     {team.map((member) => (
@@ -284,7 +284,7 @@ export function TeamPageClient() {
             </section>
 
             {/* ── CTA ── */}
-            <section className="mx-6 md:mx-12 lg:mx-20 mb-16 rounded-3xl bg-violet-600 px-8 md:px-16 py-16 text-center">
+            <section className="mx-4 sm:mx-6 md:mx-12 lg:mx-20 mb-12 sm:mb-16 rounded-3xl bg-violet-600 px-6 sm:px-10 md:px-16 py-12 sm:py-16 text-center">
                 <h2 className="text-3xl md:text-4xl font-medium text-white mb-4 tracking-tight">
                     Want to join us?
                 </h2>

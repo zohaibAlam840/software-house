@@ -84,14 +84,14 @@ export const FeatureShowcase = () => {
     const active = services.find(s => s.id === activeId) ?? services[0];
 
     return (
-        <section className="w-full bg-zinc-950 py-20 md:py-28 overflow-hidden">
+        <section className="w-full bg-zinc-950 py-14 sm:py-20 md:py-28 overflow-hidden">
             <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
 
                 {/* Header row */}
                 <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
                     <div>
                         <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-600 mb-4">[ Services ]</p>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-none">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-none">
                             Things we&apos;re{" "}
                             <span className="font-serif italic font-normal text-zinc-400">exceptional</span>
                             <br className="hidden md:block" />
@@ -137,7 +137,7 @@ export const FeatureShowcase = () => {
                         className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-6 lg:gap-8"
                     >
                         {/* Left — service details */}
-                        <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 md:p-10 flex flex-col gap-6 justify-between">
+                        <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-5 sm:p-7 md:p-10 flex flex-col gap-6 justify-between">
                             <div className="flex flex-col gap-5">
                                 {/* Index + title */}
                                 <div>
@@ -182,7 +182,7 @@ export const FeatureShowcase = () => {
                         </div>
 
                         {/* Right — project image */}
-                        <div className="relative rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800 min-h-[360px] lg:min-h-0">
+                        <div className="relative rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800 min-h-[240px] sm:min-h-[300px] lg:min-h-0">
                             <Image
                                 src={active.image}
                                 alt={active.title}

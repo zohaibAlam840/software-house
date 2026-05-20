@@ -39,10 +39,12 @@ export function Navbar() {
             {/* ── Main bar ── */}
             <header
                 className={[
-                    "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-                    scrolled
-                        ? "bg-white/90 backdrop-blur-xl border-b border-zinc-100/80 shadow-[0_1px_20px_rgba(0,0,0,0.06)]"
-                        : "bg-transparent",
+                    "fixed top-0 left-0 right-0 z-[60] transition-all duration-300",
+                    mobileOpen
+                        ? "bg-zinc-950"
+                        : scrolled
+                            ? "bg-white/90 backdrop-blur-xl border-b border-zinc-100/80 shadow-[0_1px_20px_rgba(0,0,0,0.06)]"
+                            : "bg-transparent",
                 ].join(" ")}
             >
                 <div className="max-w-[1400px] mx-auto px-5 md:px-10 lg:px-16 flex items-center justify-between h-16 md:h-[72px]">
@@ -104,7 +106,10 @@ export function Navbar() {
                             onClick={() => setMobileOpen(o => !o)}
                             aria-label={mobileOpen ? "Close menu" : "Open menu"}
                             aria-expanded={mobileOpen}
-                            className="md:hidden relative z-[60] flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-full"
+                            className={[
+                                "md:hidden relative z-[60] flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-full transition-colors duration-200",
+                                mobileOpen ? "bg-white/10 border border-white/20" : "",
+                            ].join(" ")}
                         >
                             <motion.span
                                 className="block h-0.5 w-5 rounded-full bg-zinc-900 origin-center"

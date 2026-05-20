@@ -43,11 +43,11 @@ export function WhyChooseUs() {
     };
 
     return (
-        <section className="relative z-10 w-full bg-white px-6 md:px-12 lg:px-16 py-24 md:py-32 overflow-hidden">
+        <section className="relative z-10 w-full bg-white px-6 md:px-12 lg:px-16 py-14 sm:py-24 md:py-32 overflow-hidden">
             <GridDots color="rgb(161,161,170)" size={24} dotSize={1} fade />
             <div className="mx-auto w-full max-w-[1400px]">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-zinc-900 mb-6">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-zinc-900 mb-6">
                         Why Choose <span className="text-red-600 font-bold italic">GiantsOfTech</span>
                     </h2>
                     <p className="max-w-4xl mx-auto text-sm md:text-base text-zinc-600 leading-relaxed">

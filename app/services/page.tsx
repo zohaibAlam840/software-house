@@ -64,9 +64,9 @@ export default function ServicesPage() {
             <Navbar />
 
             {/* Hero */}
-            <section className="pt-40 pb-20 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto">
+            <section className="pt-24 sm:pt-32 md:pt-40 pb-10 sm:pb-16 md:pb-20 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto">
                 <p className="text-[10px] uppercase tracking-[0.24em] text-zinc-400 mb-6">[ SERVICES ]</p>
-                <h1 className="text-[clamp(3rem,6vw,5.5rem)] font-medium leading-none tracking-tight text-zinc-900 mb-8">
+                <h1 className="text-[clamp(2.2rem,6vw,5.5rem)] font-medium leading-none tracking-tight text-zinc-900 mb-6 sm:mb-8">
                     What we{" "}
                     <span className="font-serif italic font-normal">do best.</span>
                 </h1>
@@ -77,7 +77,7 @@ export default function ServicesPage() {
             </section>
 
             {/* Services grid */}
-            <section className="px-6 md:px-12 lg:px-20 pb-32 max-w-[1400px] mx-auto">
+            <section className="px-6 md:px-12 lg:px-20 pb-16 sm:pb-24 md:pb-32 max-w-[1400px] mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {services.map((s) => (
                         <article
@@ -109,8 +109,8 @@ export default function ServicesPage() {
             </section>
 
             {/* CTA */}
-            <section className="bg-zinc-950 px-6 md:px-12 lg:px-20 py-24 text-center">
-                <h2 className="text-3xl md:text-5xl font-medium text-white mb-6 tracking-tight">
+            <section className="bg-zinc-950 px-6 md:px-12 lg:px-20 py-14 sm:py-20 md:py-24 text-center">
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-medium text-white mb-5 sm:mb-6 tracking-tight">
                     Ready to build something{" "}
                     <span className="text-violet-400 font-serif italic font-normal">great?</span>
                 </h2>

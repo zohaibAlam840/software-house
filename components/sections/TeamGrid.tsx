@@ -207,9 +207,9 @@ export default function TeamSection() {
 
     return (
         <>
-            <section className="w-full bg-zinc-950 py-20 overflow-hidden">
+            <section className="w-full bg-zinc-950 py-14 sm:py-20 overflow-hidden">
                 {/* Header */}
-                <div className="px-6 md:px-10 lg:px-16 max-w-[1400px] mx-auto flex items-end justify-between mb-14">
+                <div className="px-6 md:px-10 lg:px-16 max-w-[1400px] mx-auto flex items-end justify-between mb-10 sm:mb-14">
                     <div>
                         <p className="text-[10px] uppercase tracking-[0.28em] text-zinc-600 mb-3">[ Team ]</p>
                         <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-white">

@@ -1,15 +1,28 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { projects } from "./ProjectsGrid";
 
+function useIsMobile() {
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const mq = window.matchMedia("(max-width: 640px)");
+        setIsMobile(mq.matches);
+        const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+        mq.addEventListener("change", handler);
+        return () => mq.removeEventListener("change", handler);
+    }, []);
+    return isMobile;
+}
+
 export function ProjectsCarousel() {
     const [active, setActive] = useState(2);
+    const isMobile = useIsMobile();
 
     return (
-        <section id="work" className="w-full bg-[#0e0e0e] py-20 px-6 md:px-10 lg:px-16 overflow-hidden">
+        <section id="work" className="w-full bg-[#0e0e0e] py-14 sm:py-20 px-4 sm:px-6 md:px-10 lg:px-16 overflow-hidden">
 
             {/* Header row */}
             <div className="max-w-[1400px] mx-auto flex items-end justify-between mb-12">
@@ -41,10 +54,11 @@ export function ProjectsCarousel() {
                             <motion.div
                                 key={project.title}
                                 onMouseEnter={() => setActive(index)}
+                                onTouchStart={() => setActive(index)}
                                 animate={{ flex: isActive ? "3 0 0%" : "1 0 0%" }}
                                 transition={{ duration: 0.55, ease: [0.4, 0, 0.2, 1] }}
                                 className="relative overflow-hidden rounded-2xl cursor-pointer flex-shrink-0"
-                                style={{ minHeight: 520, minWidth: 80 }}
+                                style={{ minHeight: "clamp(320px, 55vw, 520px)", minWidth: 72 }}
                             >
                                 {/* Dark base */}
                                 <div className="absolute inset-0 bg-zinc-900" />
@@ -86,7 +100,9 @@ export function ProjectsCarousel() {
                                 <div className="absolute top-6 left-6">
                                     <motion.span
                                         animate={{
-                                            fontSize: isActive ? "5rem" : "3.5rem",
+                                            fontSize: isActive
+                                                ? (isMobile ? "2.8rem" : "5rem")
+                                                : (isMobile ? "2rem" : "3.5rem"),
                                             color: isActive ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.15)",
                                         }}
                                         transition={{ duration: 0.35 }}

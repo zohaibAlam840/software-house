@@ -148,10 +148,10 @@ export function Process() {
     }, [connections, isDesktop]);
 
     return (
-        <section id="process" className="relative z-10 w-full bg-white px-6 md:px-12 lg:px-16 pt-16 pb-48 md:pt-24 md:pb-80">
+        <section id="process" className="relative z-10 w-full bg-white px-6 md:px-12 lg:px-16 pt-12 pb-16 md:pt-20 md:pb-32 lg:pb-80">
             <div className="mx-auto w-full max-w-[1400px]">
                 <div className="text-center mb-10 md:mb-12">
-                    <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-zinc-900">
+                    <h2 className="text-2xl sm:text-3xl md:text-5xl font-medium tracking-tight text-zinc-900">
                         The Process That Transforms{" "}
                         <span className="text-red-500 italic font-bold">Ideas</span> Into Impact
                     </h2>

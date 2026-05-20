@@ -34,13 +34,13 @@ export function FAQ() {
     const [open, setOpen] = useState<number | null>(0);
 
     return (
-        <section className="w-full bg-white px-6 md:px-12 lg:px-16 py-24 md:py-32">
-            <div className="mx-auto w-full max-w-[1400px] grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-16 lg:gap-24 items-start">
+        <section className="w-full bg-white px-6 md:px-12 lg:px-16 py-16 sm:py-24 md:py-32">
+            <div className="mx-auto w-full max-w-[1400px] grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-10 sm:gap-16 lg:gap-24 items-start">
 
                 {/* Left — sticky label */}
                 <div className="lg:sticky lg:top-32">
                     <p className="text-[10px] uppercase tracking-[0.28em] text-zinc-400 mb-4">[ FAQ ]</p>
-                    <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-zinc-900 leading-none mb-6">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-zinc-900 leading-none mb-6">
                         Questions{" "}
                         <span className="font-serif italic font-normal">we get</span>
                         <br />
@@ -94,7 +94,7 @@ export function FAQ() {
                                             transition={{ duration: 0.28, ease: "easeInOut" }}
                                             className="overflow-hidden"
                                         >
-                                            <p className="pt-4 pl-10 text-sm md:text-base text-zinc-500 leading-relaxed">
+                                            <p className="pt-4 pl-7 sm:pl-10 text-sm md:text-base text-zinc-500 leading-relaxed">
                                                 {faq.answer}
                                             </p>
                                         </motion.div>

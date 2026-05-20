@@ -58,7 +58,7 @@ export const Hero = () => {
                             initial={{ opacity: 0, y: 28 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.75, delay: 0.1 }}
-                            className="text-[clamp(2.8rem,5.5vw,5.2rem)] font-medium leading-[0.93] tracking-tight text-zinc-900"
+                            className="text-[clamp(2.4rem,5.5vw,5.2rem)] font-medium leading-[0.93] tracking-tight text-zinc-900"
                         >
                             We build{" "}
                             <span className="font-serif font-normal italic">digital</span>
@@ -74,7 +74,7 @@ export const Hero = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.7, delay: 0.22 }}
-                            className="mt-7 max-w-[420px] text-base text-zinc-500 leading-relaxed"
+                            className="mt-5 sm:mt-7 w-full max-w-[420px] text-sm sm:text-base text-zinc-500 leading-relaxed"
                         >
                             A collective of designers, engineers, and strategists building
                             software that leads your industry — from branding to full-stack
@@ -107,7 +107,7 @@ export const Hero = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.7, delay: 0.55 }}
-                            className="mt-14 flex items-center gap-10 flex-wrap"
+                            className="mt-10 flex items-center gap-6 sm:gap-10 flex-wrap"
                         >
                             {stats.map(({ n, label }) => (
                                 <div key={label}>

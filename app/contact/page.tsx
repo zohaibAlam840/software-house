@@ -31,7 +31,7 @@ export default function ContactPage() {
         <main className="min-h-screen bg-white font-sans">
             <Navbar />
 
-            <section className="relative pt-40 pb-32 px-6 md:px-12 lg:px-20 overflow-hidden">
+            <section className="relative pt-24 sm:pt-32 md:pt-40 pb-16 sm:pb-24 md:pb-32 px-6 md:px-12 lg:px-20 overflow-hidden">
                 <GridDots color="rgb(124,58,237)" size={26} dotSize={1} fade />
 
                 <div className="relative z-10 max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
@@ -39,11 +39,11 @@ export default function ContactPage() {
                     {/* Left — info */}
                     <div>
                         <p className="text-[10px] uppercase tracking-[0.24em] text-zinc-400 mb-6">[ CONTACT ]</p>
-                        <h1 className="text-[clamp(2.5rem,5vw,4.8rem)] font-medium leading-none tracking-tight text-zinc-900 mb-8">
+                        <h1 className="text-[clamp(2rem,5vw,4.8rem)] font-medium leading-none tracking-tight text-zinc-900 mb-6 sm:mb-8">
                             Let&apos;s build{" "}
                             <span className="font-serif italic font-normal text-violet-600">something.</span>
                         </h1>
-                        <p className="max-w-sm text-base text-zinc-500 leading-relaxed mb-14">
+                        <p className="max-w-sm text-sm sm:text-base text-zinc-500 leading-relaxed mb-8 sm:mb-14">
                             Tell us about your project. We respond within 24 hours and
                             kick off every engagement with a free discovery call.
                         </p>
@@ -69,7 +69,7 @@ export default function ContactPage() {
                     </div>
 
                     {/* Right — form */}
-                    <div className="bg-white rounded-3xl border border-zinc-100 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] p-8 md:p-10">
+                    <div className="bg-white rounded-3xl border border-zinc-100 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] p-5 sm:p-8 md:p-10">
                         {status === "sent" ? (
                             <div className="flex flex-col items-center justify-center h-full py-16 text-center gap-4">
                                 <div className="text-4xl">🎉</div>

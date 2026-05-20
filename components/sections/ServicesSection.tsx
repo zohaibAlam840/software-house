@@ -46,7 +46,7 @@ export const ServicesSection = () => {
             <div className="relative z-10 mx-auto max-w-[1400px]">
                 <MotionReveal variant="fadeUp" className="mb-20">
                     <h2 className="mb-8 text-[10px] uppercase tracking-[0.24em] text-zinc-400">[ SERVICES ]</h2>
-                    <p className="text-[clamp(2.5rem,5vw,4.5rem)] font-medium leading-none tracking-tight text-zinc-900">
+                    <p className="text-[clamp(1.9rem,5vw,4.5rem)] font-medium leading-none tracking-tight text-zinc-900">
                         We build <span className="font-normal">→ </span>
                         <span className="font-serif italic font-normal text-zinc-800">expressive brands</span>
                     </p>
@@ -93,7 +93,7 @@ export const ServicesSection = () => {
                             {/* Circular Play Reel Button */}
                             <button
                                 type="button"
-                                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-32 w-32 rounded-full bg-white flex items-center justify-center shadow-xl hover:scale-105 active:scale-95 transition-transform group"
+                                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-20 w-20 sm:h-24 sm:w-24 md:h-32 md:w-32 rounded-full bg-white flex items-center justify-center shadow-xl hover:scale-105 active:scale-95 transition-transform group"
                             >
                                 <span className="text-xs font-bold uppercase tracking-widest text-black -rotate-12 group-hover:rotate-0 transition-transform">
                                     Play Reel

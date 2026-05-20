@@ -13,7 +13,7 @@ export function CTABanner() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-80px" }}
                     transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                    className="relative w-full rounded-3xl overflow-hidden bg-zinc-950 px-8 md:px-16 py-16 md:py-20 flex flex-col md:flex-row items-center justify-between gap-10"
+                    className="relative w-full rounded-3xl overflow-hidden bg-zinc-950 px-5 sm:px-8 md:px-16 py-12 md:py-16 lg:py-20 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10"
                 >
                     {/* Dot grid bg */}
                     <GridDots color="rgb(255,255,255)" size={22} dotSize={1} fade />
@@ -25,7 +25,7 @@ export function CTABanner() {
                     />
 
                     {/* Text */}
-                    <div className="relative z-10 flex flex-col gap-3 max-w-xl">
+                    <div className="relative z-10 flex flex-col gap-3 max-w-xl text-center md:text-left items-center md:items-start">
                         <p className="text-[10px] uppercase tracking-[0.28em] text-zinc-500">[ Ready? ]</p>
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
                             Your next idea{" "}
@@ -37,7 +37,7 @@ export function CTABanner() {
                     </div>
 
                     {/* CTAs */}
-                    <div className="relative z-10 flex flex-col sm:flex-row gap-3 flex-shrink-0">
+                    <div className="relative z-10 flex flex-col sm:flex-row gap-3 flex-shrink-0 w-full sm:w-auto">
                         <a
                             href="/contact"
                             className="inline-flex items-center justify-center gap-2 rounded-full bg-violet-600 px-7 py-3.5 text-sm font-medium text-white hover:bg-violet-500 transition-colors"

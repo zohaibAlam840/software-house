@@ -23,14 +23,14 @@ export const ContactCTA = () => {
     const particles = useMemo(() => { void burstKey; return (!hovered || noMotion) ? [] : makeBurst(30); }, [hovered, burstKey, noMotion]);
 
     return (
-        <section className="w-full bg-zinc-950 px-6 md:px-12 lg:px-16 py-32 md:py-44 relative overflow-hidden">
+        <section className="w-full bg-zinc-950 px-6 md:px-12 lg:px-16 py-16 sm:py-24 md:py-32 lg:py-44 relative overflow-hidden">
             {/* Background gradient */}
             <div className="pointer-events-none absolute inset-0">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-violet-600/10 blur-[120px]" />
                 <div className="absolute bottom-0 right-0 w-[400px] h-[300px] rounded-full bg-indigo-500/10 blur-[100px]" />
             </div>
 
-            <div className="relative z-10 flex flex-col items-center text-center gap-14 max-w-5xl mx-auto">
+            <div className="relative z-10 flex flex-col items-center text-center gap-8 sm:gap-12 lg:gap-14 max-w-5xl mx-auto">
                 {/* Main headline */}
                 <div className="flex flex-col items-center gap-4">
                     <motion.p
@@ -48,7 +48,7 @@ export const ContactCTA = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.7, delay: 0.1 }}
-                        className="text-[clamp(3rem,7vw,7rem)] font-medium tracking-tight text-white leading-[0.92]"
+                        className="text-[clamp(2.2rem,7vw,7rem)] font-medium tracking-tight text-white leading-[0.92]"
                     >
                         Let&apos;s make something
                         <br />
@@ -66,7 +66,7 @@ export const ContactCTA = () => {
                 >
                     <a
                         href="mailto:contact@giantsoftech.com"
-                        className="group inline-flex items-center gap-3 rounded-full border border-zinc-700 px-8 py-4 text-base font-medium text-white hover:border-violet-500 hover:text-violet-400 transition-all"
+                        className="group inline-flex items-center gap-2 rounded-full border border-zinc-700 px-5 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-medium text-white hover:border-violet-500 hover:text-violet-400 transition-all"
                     >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
                         contact@giantsoftech.com
@@ -103,7 +103,7 @@ export const ContactCTA = () => {
 
             {/* Watermark + particle burst on hover */}
             <div
-                className="relative z-10 mt-32 border-t border-zinc-900 pt-10 overflow-hidden"
+                className="relative z-10 mt-12 sm:mt-20 md:mt-28 border-t border-zinc-900 pt-8 overflow-hidden"
                 onMouseEnter={() => { setHovered(true); setBurstKey(k => k + 1); }}
                 onMouseLeave={() => setHovered(false)}
             >
