@@ -3,149 +3,214 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { MotionReveal } from "../motion/MotionReveal";
+import { DotMatrix } from "../ui/DotMatrix";
 
-import { TypeAnimation } from 'react-type-animation';
+const stats = [
+    { n: "50+", label: "Projects Delivered" },
+    { n: "9+", label: "Years Experience" },
+    { n: "100%", label: "On-Time Delivery" },
+];
+
+const reelImages = ["/reel-collage.png", "/reel-collage-2.png", "/pro/d1.jpeg"];
 
 export const Hero = () => {
-    const [currentImage, setCurrentImage] = useState(0);
-    const reelImages = [
-        "/pro/l1.png",
-        "/pro/r1.png",
-        "/pro/s1.png"
-    ];
+    const [current, setCurrent] = useState(0);
 
     useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentImage((prev) => (prev + 1) % reelImages.length);
-        }, 3000);
-        return () => clearInterval(timer);
-    }, [reelImages.length]);
+        const t = setInterval(() => setCurrent((p) => (p + 1) % reelImages.length), 3200);
+        return () => clearInterval(t);
+    }, []);
 
     return (
-        <section className="relative w-full bg-white h-[100svh]">
-            <div className="mx-auto h-full w-full max-w-[1280px] pt-28 pb-10 px-6 md:pt-32 md:pb-12 md:px-12 lg:px-16 overflow-y-auto md:overflow-hidden">
-                {/* 12-col layout */}
-                <div className="grid h-full grid-cols-12 items-center gap-x-10 gap-y-8 md:gap-y-14 mt-10 md:mt-0">
-                    {/* LEFT: big headline */}
-                    <div className="col-span-12 md:col-span-6">
-                        <MotionReveal variant="fadeUp" delay={0.15}>
-                            <h1 className="text-black leading-[0.95] md:leading-[0.92] tracking-tight">
-                                <span className="block text-[clamp(2.5rem,8vw,5.2rem)] font-medium">
-                                    We seek <span className="font-normal">→</span>
-                                </span>
+        <section className="relative w-full bg-white h-[100svh] overflow-hidden flex flex-col">
+            {/* Interactive dot matrix */}
+            <DotMatrix dotColor="124, 58, 237" spacing={26} baseOpacity={0.11} maxRadius={3} />
 
-                                <span className="mt-2 md:mt-3 block text-[clamp(2.8rem,9vw,5.8rem)] font-medium text-violet-600">
-                                    <TypeAnimation
-                                        sequence={[
-                                            'unique', 2500,
-                                            'bold', 2500,
-                                            'creative', 2500,
-                                            'visionary', 2500,
-                                        ]}
-                                        wrapper="span"
-                                        speed={40}
-                                        deletionSpeed={50}
-                                        repeat={Infinity}
-                                        className="inline-block"
-                                    />
-                                </span>
+            {/* Soft white vignette so dots don't crowd the text */}
+            <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0"
+                style={{
+                    background:
+                        "radial-gradient(ellipse 75% 65% at 40% 55%, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.75) 60%, rgba(255,255,255,0.95) 100%)",
+                }}
+            />
 
-                                <span className="mt-2 md:mt-3 block font-serif italic font-normal text-[clamp(2.5rem,8vw,5.2rem)]">
-                                    perspectives
-                                </span>
-                            </h1>
-                        </MotionReveal>
+            <div className="relative z-10 flex items-center h-full w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 pt-20">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center w-full">
 
-                        {/* Bottom row under headline: CTA + helper text + avatars */}
-                        <MotionReveal variant="fadeUp" delay={0.35}>
-                            <div className="mt-16 flex flex-col gap-3">
-                                <a
-                                    href="/contact"
-                                    className="group inline-flex w-fit items-center gap-2 border-b border-black pb-1 text-base font-medium text-black"
-                                >
-                                    Let&apos;s talk
-                                    <span className="transition-transform group-hover:translate-x-1">
-                                        →
-                                    </span>
-                                </a>
+                    {/* ── LEFT ────────────────────────────────────────── */}
+                    <div className="flex flex-col">
 
-                                <div className="flex items-center gap-4">
-                                    <p className="text-xs text-zinc-400">
-                                        You&apos;ll be talking with our creative talents.
-                                    </p>
-
-                                    <div className="flex -space-x-2">
-                                        {/* Real avatar assets */}
-                                        {["/hero-avatar-1.png", "/hero-avatar-2.png", "/hero-avatar-3.png", "/hero-avatar-4.png"].map((src, i) => (
-                                            <div key={i} className="relative h-7 w-7 ring-2 ring-white rounded-full overflow-hidden">
-                                                <Image
-                                                    src={src}
-                                                    alt={`Creative Talent ${i + 1}`}
-                                                    fill
-                                                    className="object-cover"
-                                                />
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </MotionReveal>
-                    </div>
-
-                    {/* MIDDLE TOP: bracket label */}
-                    <div className="col-span-12 md:col-span-3 md:self-start md:pt-12">
-                        <MotionReveal variant="fadeUp" delay={0.25}>
-                            <p className="text-[10px] uppercase tracking-[0.24em] text-zinc-400">
-                                [across branding, communications and digital.]
-                            </p>
-                        </MotionReveal>
-
-                        {/* MIDDLE BOTTOM: paragraph */}
-                        <MotionReveal variant="fadeUp" delay={0.45}>
-                            <p className="mt-8 md:mt-16 max-w-[260px] text-sm leading-relaxed text-zinc-600">
-                                We collaborate as a collective of individuals bringing their
-                                whole self to a project and, together, create work that none of
-                                us would be able to do on our own.
-                            </p>
-                        </MotionReveal>
-                    </div>
-
-                    {/* RIGHT: collage card */}
-                    <div className="col-span-12 md:col-span-3 md:justify-self-end mt-4 mb-10 md:mb-0 md:mt-0">
-                        <MotionReveal
-                            variant="fadeIn"
-                            delay={0.55}
-                            className="relative aspect-[4/5] w-full max-w-[220px] md:max-w-[360px] mx-auto md:mx-0 overflow-hidden rounded-2xl bg-zinc-100 shadow-[0_30px_80px_rgba(0,0,0,0.12)]"
+                        {/* Badge */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5 }}
+                            className="inline-flex w-fit items-center gap-2 rounded-full border border-violet-200 bg-violet-50 px-4 py-1.5 text-xs font-medium text-violet-700 mb-8"
                         >
+                            <span className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse" />
+                            Currently taking new projects
+                        </motion.div>
+
+                        {/* Headline */}
+                        <motion.h1
+                            initial={{ opacity: 0, y: 28 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.75, delay: 0.1 }}
+                            className="text-[clamp(2.8rem,5.5vw,5.2rem)] font-medium leading-[0.93] tracking-tight text-zinc-900"
+                        >
+                            We build{" "}
+                            <span className="font-serif font-normal italic">digital</span>
+                            <br />
+                            <span className="text-violet-600">experiences</span>
+                            <br />
+                            that{" "}
+                            <span className="font-serif font-normal italic">scale.</span>
+                        </motion.h1>
+
+                        {/* Sub-copy */}
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, delay: 0.22 }}
+                            className="mt-7 max-w-[420px] text-base text-zinc-500 leading-relaxed"
+                        >
+                            A collective of designers, engineers, and strategists building
+                            software that leads your industry — from branding to full-stack
+                            digital products.
+                        </motion.p>
+
+                        {/* CTAs */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, delay: 0.34 }}
+                            className="mt-10 flex flex-wrap items-center gap-4"
+                        >
+                            <a
+                                href="#contact"
+                                className="inline-flex items-center gap-2 rounded-full bg-zinc-900 px-7 py-3.5 text-sm font-medium text-white hover:bg-violet-600 transition-colors duration-200"
+                            >
+                                Start a project <span aria-hidden="true">→</span>
+                            </a>
+                            <a
+                                href="/work"
+                                className="inline-flex items-center gap-2 text-sm font-medium text-zinc-700 border-b border-zinc-300 pb-0.5 hover:text-violet-600 hover:border-violet-400 transition-colors duration-200"
+                            >
+                                View our work
+                            </a>
+                        </motion.div>
+
+                        {/* Stats row */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.7, delay: 0.55 }}
+                            className="mt-14 flex items-center gap-10 flex-wrap"
+                        >
+                            {stats.map(({ n, label }) => (
+                                <div key={label}>
+                                    <div className="text-2xl font-semibold text-zinc-900">{n}</div>
+                                    <div className="mt-0.5 text-[11px] uppercase tracking-wider text-zinc-400">{label}</div>
+                                </div>
+                            ))}
+                        </motion.div>
+                    </div>
+
+                    {/* ── RIGHT — floating card composition ───────────── */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 1, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
+                        className="relative hidden lg:flex items-center justify-center"
+                        style={{ height: 480 }}
+                    >
+                        {/* Main rotating image card */}
+                        <div className="relative w-[300px] h-[400px] rounded-3xl overflow-hidden shadow-[0_40px_100px_-15px_rgba(0,0,0,0.2)] bg-zinc-100 flex-shrink-0">
                             <AnimatePresence mode="wait">
                                 <motion.div
-                                    key={currentImage}
-                                    initial={{ opacity: 0, scale: 1.1 }}
+                                    key={current}
+                                    initial={{ opacity: 0, scale: 1.06 }}
                                     animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.95 }}
-                                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                                    exit={{ opacity: 0, scale: 0.97 }}
+                                    transition={{ duration: 0.9, ease: "easeInOut" }}
                                     className="absolute inset-0"
                                 >
                                     <Image
-                                        src={reelImages[currentImage]}
-                                        alt="Reel Collage"
+                                        src={reelImages[current]}
+                                        alt="Project showcase"
                                         fill
                                         className="object-cover"
                                         priority
-                                        sizes="(max-width: 768px) 100vw, 360px"
+                                        sizes="300px"
                                     />
                                 </motion.div>
                             </AnimatePresence>
 
-                            <button
-                                type="button"
-                                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white px-6 py-3 text-xs font-medium text-black shadow-sm z-10"
-                            >
-                                Play Reel
-                            </button>
-                        </MotionReveal>
-                    </div>
+                            {/* Gradient overlay at bottom */}
+                            <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/40 to-transparent z-10" />
+                            <div className="absolute bottom-4 left-4 z-20 text-white text-xs font-medium tracking-wide">
+                                GiantsOfTech Studio
+                            </div>
+                        </div>
+
+                        {/* Floating card — top right: launches */}
+                        <motion.div
+                            initial={{ opacity: 0, y: -14, x: 10 }}
+                            animate={{ opacity: 1, y: 0, x: 0 }}
+                            transition={{ duration: 0.6, delay: 0.65 }}
+                            className="absolute top-4 right-0 translate-x-8 bg-white rounded-2xl shadow-xl border border-zinc-100 px-4 py-3.5 flex items-center gap-3"
+                        >
+                            <div className="w-9 h-9 rounded-xl bg-violet-100 flex items-center justify-center text-base flex-shrink-0">
+                                🚀
+                            </div>
+                            <div>
+                                <div className="text-sm font-semibold text-zinc-900 leading-tight">50+ Launches</div>
+                                <div className="text-[11px] text-zinc-400 mt-0.5">Products shipped</div>
+                            </div>
+                        </motion.div>
+
+                        {/* Floating card — bottom left: clients */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 14, x: -10 }}
+                            animate={{ opacity: 1, y: 0, x: 0 }}
+                            transition={{ duration: 0.6, delay: 0.8 }}
+                            className="absolute bottom-4 -left-8 bg-white rounded-2xl shadow-xl border border-zinc-100 px-4 py-3.5"
+                        >
+                            <div className="flex -space-x-2 mb-2">
+                                {[1, 2, 3, 4].map((n) => (
+                                    <div
+                                        key={n}
+                                        className="relative w-7 h-7 rounded-full ring-2 ring-white overflow-hidden bg-zinc-200 flex-shrink-0"
+                                    >
+                                        <Image
+                                            src={`/hero-avatar-${n}.png`}
+                                            alt=""
+                                            fill
+                                            className="object-cover"
+                                            sizes="28px"
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="text-[11px] text-zinc-500">
+                                Trusted by{" "}
+                                <span className="font-semibold text-zinc-800">50+ clients</span>
+                            </div>
+                        </motion.div>
+
+                        {/* "Available" pill */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.85 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.5, delay: 0.95 }}
+                            className="absolute bottom-16 right-0 translate-x-4 flex items-center gap-1.5 bg-white border border-zinc-100 rounded-full px-3.5 py-2 text-[11px] font-medium text-zinc-700 shadow-md"
+                        >
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                            Available now
+                        </motion.div>
+                    </motion.div>
                 </div>
             </div>
         </section>

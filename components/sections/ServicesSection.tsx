@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { MotionReveal } from "../motion/MotionReveal";
+import { GridDots } from "../ui/GridDots";
 
 const services = [
     {
@@ -40,8 +41,9 @@ export const ServicesSection = () => {
     }, [reelImages.length]);
 
     return (
-        <section id="services" className="w-full px-6 py-24 md:px-12 lg:px-16 bg-white overflow-hidden">
-            <div className="mx-auto max-w-[1400px]">
+        <section id="services" className="relative w-full px-6 py-24 md:px-12 lg:px-16 bg-white overflow-hidden">
+            <GridDots color="rgb(161,161,170)" size={22} dotSize={1} fade />
+            <div className="relative z-10 mx-auto max-w-[1400px]">
                 <MotionReveal variant="fadeUp" className="mb-20">
                     <h2 className="mb-8 text-[10px] uppercase tracking-[0.24em] text-zinc-400">[ SERVICES ]</h2>
                     <p className="text-[clamp(2.5rem,5vw,4.5rem)] font-medium leading-none tracking-tight text-zinc-900">

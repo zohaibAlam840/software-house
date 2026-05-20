@@ -1,10 +1,13 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { GridDots } from "../ui/GridDots";
 
 export function WhyChooseUs() {
     const [hoveredCol, setHoveredCol] = useState<number | null>(null);
+    const darkCardRef = useRef<HTMLDivElement>(null);
+    const [spotlight, setSpotlight] = useState({ x: 50, y: 50, visible: false });
     const reduceMotion = useReducedMotion();
     const [isDesktop, setIsDesktop] = useState(true);
 
@@ -40,7 +43,8 @@ export function WhyChooseUs() {
     };
 
     return (
-        <section className="relative z-10 w-full bg-white px-6 md:px-12 lg:px-16 py-24 md:py-32">
+        <section className="relative z-10 w-full bg-white px-6 md:px-12 lg:px-16 py-24 md:py-32 overflow-hidden">
+            <GridDots color="rgb(161,161,170)" size={24} dotSize={1} fade />
             <div className="mx-auto w-full max-w-[1400px]">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-zinc-900 mb-6">
@@ -123,7 +127,7 @@ export function WhyChooseUs() {
                         </div>
                     </motion.div>
 
-                    {/* Col 4 */}
+                    {/* Col 4 — dark card with mouse-spotlight */}
                     <motion.div
                         className="flex flex-col gap-4 flex-1 origin-right"
                         animate={{ flexGrow: getFlexGrow(4) }}
@@ -131,18 +135,41 @@ export function WhyChooseUs() {
                         onMouseEnter={isDesktop ? () => setHoveredCol(4) : undefined}
                         onMouseLeave={isDesktop ? () => setHoveredCol(null) : undefined}
                     >
-                        <div className="bg-[#333333] rounded-2xl p-6 flex flex-col justify-between h-full min-h-[250px] overflow-hidden relative group">
+                        <div
+                            ref={darkCardRef}
+                            className="bg-[#222222] rounded-2xl p-6 flex flex-col justify-between h-full min-h-[250px] overflow-hidden relative group"
+                            onMouseMove={(e) => {
+                                const rect = darkCardRef.current?.getBoundingClientRect();
+                                if (!rect) return;
+                                setSpotlight({
+                                    x: ((e.clientX - rect.left) / rect.width) * 100,
+                                    y: ((e.clientY - rect.top) / rect.height) * 100,
+                                    visible: true,
+                                });
+                            }}
+                            onMouseLeave={() => setSpotlight((s) => ({ ...s, visible: false }))}
+                        >
+                            {/* Spotlight radial gradient follows cursor */}
+                            <div
+                                aria-hidden="true"
+                                className="pointer-events-none absolute inset-0 rounded-2xl transition-opacity duration-300"
+                                style={{
+                                    opacity: spotlight.visible ? 1 : 0,
+                                    background: `radial-gradient(300px circle at ${spotlight.x}% ${spotlight.y}%, rgba(139,92,246,0.25), transparent 70%)`,
+                                }}
+                            />
+
                             <h3 className="text-3xl lg:text-4xl font-medium leading-tight text-white relative z-10 w-[90%] mt-2">100% On-Time Delivery</h3>
 
                             <motion.div
-                                className="absolute top-1/2 left-1/4 -translate-y-1/2 opacity-20 text-[200px] leading-none select-none text-zinc-300 origin-center pointer-events-none"
+                                className="absolute top-1/2 left-1/4 -translate-y-1/2 opacity-10 text-[200px] leading-none select-none text-violet-300 origin-center pointer-events-none"
                                 animate={{ rotate: hoveredCol === 4 ? 15 : 0, scale: hoveredCol === 4 ? 1.1 : 1 }}
                                 transition={{ type: "spring", stiffness: 200, damping: 20 }}
                             >
                                 ✦
                             </motion.div>
 
-                            <p className="text-zinc-50 text-xs relative z-10 mb-2 font-medium">Clear workflows & planned milestones</p>
+                            <p className="text-zinc-300 text-xs relative z-10 mb-2 font-medium">Clear workflows & planned milestones</p>
                         </div>
                     </motion.div>
                 </div>
