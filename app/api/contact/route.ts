@@ -32,14 +32,17 @@ export async function POST(req: Request) {
 
         const userEmail = process.env.EMAIL_USER;
         const userPass = process.env.EMAIL_PASS;
-        const receiverEmail = process.env.RECEIVER_EMAIL || "zohaibe840@gmail.com";
+        const officialEmail = "contact@giantsoftech.com";
+        const primaryReceiver = "zohaibe840@gmail.com";
+        // Deliver leads to both the personal inbox and the official company mailbox
+        const recipientList = [primaryReceiver, officialEmail];
 
-        // Admin notification email template for zohaibe840@gmail.com
+        // Admin notification email template
         const adminHtml = `
             <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #e0e0dc; border-radius: 12px; background: #ffffff;">
                 <div style="border-bottom: 2px solid #e64b36; padding-bottom: 12px; margin-bottom: 20px;">
                     <h2 style="color: #141413; margin: 0; font-size: 22px;">New Project Inquiry</h2>
-                    <span style="font-family: monospace; font-size: 11px; color: #72726a;">DELIVERED TO ${receiverEmail}</span>
+                    <span style="font-family: monospace; font-size: 11px; color: #72726a;">ROUTED TO ${recipientList.join(' & ')}</span>
                 </div>
                 <div style="background-color: #f6f6f4; padding: 18px; border-radius: 8px; margin: 20px 0; font-size: 14px; line-height: 1.6;">
                     <p style="margin: 0 0 10px 0;"><strong>Client Name:</strong> ${name}</p>
@@ -52,14 +55,14 @@ export async function POST(req: Request) {
                     ${details.replace(/\n/g, '<br>')}
                 </div>
                 <p style="font-size: 11px; color: #888; margin-top: 30px; text-align: center; font-family: monospace;">
-                    Delivered to ${receiverEmail} via GiantsOfTech Work Page Contact Form.
+                    Delivered to ${recipientList.join(' and ')} via GiantsOfTech Work Page Contact Form.
                 </p>
             </div>
         `;
 
         const adminMailOptions = {
-            from: `"GiantsOfTech Leads" <${userEmail || 'contact@giantsoftech.com'}>`,
-            to: receiverEmail,
+            from: `"GiantsOfTech Leads" <${userEmail || officialEmail}>`,
+            to: recipientList,
             replyTo: email,
             subject: `🚨 New Lead from ${name} (${service || 'General Inquiry'})`,
             html: adminHtml,
@@ -132,7 +135,7 @@ export async function POST(req: Request) {
                 }, { status: 200 });
             }
         } else {
-            console.warn(`EMAIL_USER or EMAIL_PASS not configured. Inquiry for ${receiverEmail} logged.`);
+            console.warn(`EMAIL_USER or EMAIL_PASS not configured. Inquiry for ${recipientList.join(', ')} logged.`);
         }
 
         // Record submission timestamp
