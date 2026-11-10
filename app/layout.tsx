@@ -10,7 +10,7 @@ const BASE = "https://giantsoftech.com";
 export const metadata: Metadata = {
     metadataBase: new URL(BASE),
     title: {
-        default: "GiantsOfTech — Software Development & Digital Solutions",
+        default: "GiantsOfTech — Software Development & Digital Solutions ",
         template: "%s — GiantsOfTech",
     },
     description:
