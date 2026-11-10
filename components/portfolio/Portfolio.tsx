@@ -455,14 +455,14 @@ export default function Portfolio() {
               HAVE SOMETHING<br />IN MIND?
             </h2>
             <p className={styles.contactPitch}>
-              Tell us about your project, idea, or challenge. Every submission is sent directly to our team at <strong>zohaibe840@gmail.com</strong> and answered within 24 hours.
+              Tell us about your project, idea, or challenge. Our team reviews every inquiry and will get back to you within 24 hours.
             </p>
 
             <div className={styles.contactMetaList}>
               <div className={styles.contactMetaItem}>
-                <span className={styles.contactMetaLabel}>Direct Email</span>
-                <a href="mailto:zohaibe840@gmail.com" className={styles.contactMetaLink}>
-                  zohaibe840@gmail.com <Arrow diagonal />
+                <span className={styles.contactMetaLabel}>Official Email</span>
+                <a href="mailto:contact@giantsoftech.com" className={styles.contactMetaLink}>
+                  contact@giantsoftech.com <Arrow diagonal />
                 </a>
               </div>
               <div className={styles.contactMetaItem}>
@@ -483,7 +483,7 @@ export default function Portfolio() {
                 <div className={styles.successBadge}>✓ SENT</div>
                 <h3 className={styles.successTitle}>Inquiry Sent Successfully!</h3>
                 <p className={styles.successText}>
-                  Your message has been delivered to <strong>zohaibe840@gmail.com</strong>. We have sent a confirmation to your email and will be in touch within 24 hours.
+                  Thank you for reaching out! We have received your inquiry and our team will be in touch within 24 hours.
                 </p>
                 <button
                   type="button"
@@ -585,8 +585,8 @@ export default function Portfolio() {
         </div>
 
         <div className={styles.contactBottom}>
-          <a href="mailto:zohaibe840@gmail.com">zohaibe840@gmail.com <Arrow diagonal /></a>
-          <span>DELIVERED DIRECTLY TO ZOHAIBE840@GMAIL.COM</span>
+          <a href="mailto:contact@giantsoftech.com">contact@giantsoftech.com <Arrow diagonal /></a>
+          <span>GIANTS OF TECH · FAST RESPONSE GUARANTEED</span>
         </div>
       </section>
 

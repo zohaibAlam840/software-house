@@ -128,8 +128,7 @@ export async function POST(req: Request) {
                 console.warn('SMTP Provider Error (Check credentials in .env.local):', smtpError instanceof Error ? smtpError.message : smtpError);
                 // Recorded in server logs, return graceful confirmation to client
                 return NextResponse.json({
-                    message: `Inquiry received! Notification routed to ${receiverEmail}.`,
-                    warning: 'SMTP authentication failed; logged for administrator.'
+                    message: 'Inquiry received successfully!'
                 }, { status: 200 });
             }
         } else {
@@ -140,7 +139,7 @@ export async function POST(req: Request) {
         recentlySubmittedEmails.set(email, Date.now());
 
         return NextResponse.json({
-            message: `Inquiry sent successfully to ${receiverEmail}!`
+            message: 'Inquiry sent successfully!'
         }, { status: 200 });
 
     } catch (error) {
